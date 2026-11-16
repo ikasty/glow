@@ -75,3 +75,9 @@ require (
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/charmbracelet/glamour => github.com/ikasty/glamour v0.0.0-20261116060317-cd66a6dd3ef7
+
+replace github.com/charmbracelet/lipgloss => github.com/ikasty/lipgloss v0.0.0-20261116060024-09058b5ab3bd
+
+replace github.com/muesli/reflow => github.com/ikasty/reflow v0.0.0-20261116055931-336f7d84bd2e
