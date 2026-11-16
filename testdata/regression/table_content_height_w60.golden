@@ -1,0 +1,22 @@
+
+                                                          
+   방식             │ 예               │ 결과             
+  ══════════════════╪══════════════════╪══════════════════
+   소스 재컴파일 (  │  ircomm_test ,   │ hidden preset이  
+   $<TARGET_PROPERT │ srch_is_test ,   │ 적용되지 않아    
+   Y:X,SOURCES> )   │ srch_datapath_te │ _hidden  계열    
+                    │ st ,             │ 심볼까지 전부    
+                    │ srch_rerank_test │ export된다       
+                    │ ,                │                  
+                    │ srch_infosrch_te │                  
+                    │ st               │                  
+  ──────────────────┼──────────────────┼──────────────────
+   OBJECT 직접 링크 │                  │ 해당 모듈 코드가 
+   (오브젝트 내장)  │ srch_server_test │ 그  .so  안에    
+                    │ ←                │ 사본으로 존재    
+                    │ srch_server_expo │                  
+                    │ rt ,             │                  
+                    │ srch_rerank_test │                  
+                    │ ← ircomm_export  │                  
+                    │ / ircomm_hidden  │                  
+
