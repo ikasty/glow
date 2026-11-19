@@ -300,10 +300,10 @@ func executeCLI(cmd *cobra.Command, src *source, w io.Writer) error {
 		return fmt.Errorf("unable to create renderer: %w", err)
 	}
 
-	content := string(b)
+	content := utils.RemoveEmojiVariationSelector(string(b))
 	ext := filepath.Ext(src.URL)
 	if isCode {
-		content = utils.WrapCodeBlock(string(b), ext)
+		content = utils.WrapCodeBlock(content, ext)
 	}
 
 	out, err := r.Render(content)
