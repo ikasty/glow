@@ -1,0 +1,1 @@
+Long hyphenated names like build-image-single-workflow-dispatch-trigger-handler and run-unittests-on-every-pull-request-target must stay inside the width.
