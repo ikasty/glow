@@ -14,6 +14,19 @@ import (
 	"github.com/mitchellh/go-homedir"
 )
 
+// RemoveEmojiVariationSelector removes U+FE0F (VARIATION SELECTOR-16) so that
+// every component measures the preceding character the same way.
+//
+// VS16 asks for the emoji presentation of a character that is text-style by
+// default, such as ℹ (U+2139) or ⏭ (U+23ED). lipgloss measures table cells
+// by grapheme cluster and counts "ℹ\uFE0F" as two cells, while reflow
+// (go-runewidth) and terminals that ignore VS16 — zellij among them — draw it
+// in one cell. The table then pads such a cell one cell short and its column
+// separator shifts left. Without VS16 the character is one cell everywhere.
+func RemoveEmojiVariationSelector(s string) string {
+	return strings.ReplaceAll(s, "\uFE0F", "")
+}
+
 // RemoveFrontmatter removes the front matter header of a markdown file.
 func RemoveFrontmatter(content []byte) []byte {
 	if frontmatterBoundaries := detectFrontmatter(content); frontmatterBoundaries[0] == 0 {

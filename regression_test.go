@@ -46,7 +46,7 @@ func renderLikeCLI(t *testing.T, md []byte, width int) string {
 	if err != nil {
 		t.Fatal(err)
 	}
-	out, err := r.Render(string(utils.RemoveFrontmatter(md)))
+	out, err := r.Render(utils.RemoveEmojiVariationSelector(string(utils.RemoveFrontmatter(md))))
 	if err != nil {
 		t.Fatal(err)
 	}

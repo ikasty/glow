@@ -27,6 +27,7 @@ with all fixes applied.
 | `table_header_rule_w80` | glamour `cd66a6d` ansi: draw the table header rule with ═ and ╪ | the header rule is drawn with `─`/`┼` like the row rules |
 | `table_full_width_w80` | lipgloss `0cc14f4` table: count only enabled outer borders in the resizer | the table is two cells narrower than the width |
 | `table_overflow_w120` | lipgloss `09058b5` table: include borders when choosing to expand or shrink | the right edge is cut off: `(3 절)` renders as `(3 절` |
+| `table_emoji_vs16_w80` | glow: strip U+FE0F before rendering | the `│` after `ℹ️`/`⏭️` sits one cell left of the header's |
 
 The table samples also exercise the other table fixes, so reverting one table
 fix usually fails several table samples; the sample listed above is the one

@@ -445,6 +445,7 @@ func glamourRender(m pagerModel, markdown string) (string, error) {
 		return "", fmt.Errorf("error creating glamour renderer: %w", err)
 	}
 
+	markdown = utils.RemoveEmojiVariationSelector(markdown)
 	if isCode {
 		markdown = utils.WrapCodeBlock(markdown, filepath.Ext(m.currentDocument.Note))
 	}
